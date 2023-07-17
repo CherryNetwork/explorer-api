@@ -42,7 +42,7 @@ services:
     image: ${API_DOCKER_IMAGE:-polkascan/explorer-api-beta}
     command: ${API_DOCKER_COMMAND:-bash -c "/usr/src/start-api.sh"}
     ports:
-      - "8000:8000"
+      - "8080:8080"
     depends_on:
       - redis
       - db
@@ -62,8 +62,8 @@ services:
       - DB_PASSWORD=root
       - DOMAIN=localhost
       - SERVER_ADDR=localhost
-      - SERVER_PORT=8000
-      - WEBSOCKET_URI=ws://localhost:8000
+      - SERVER_PORT=8080
+      - WEBSOCKET_URI=ws://localhost:8080
       - BACKEND_CORS_ORIGINS=[]
       - BROADCAST_URI=redis://redis:6379
       - API_SQLA_URI=mysql+pymysql://root:root@mysql:3306/explorer_api?charset=utf8mb4
